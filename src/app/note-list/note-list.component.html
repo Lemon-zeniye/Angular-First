@@ -1,0 +1,6 @@
+<div class="mx-auto w-full columns-2 pt-4 px-8  sm:columns-3  md:columns-4 lg:columns-5">
+    <div *ngFor="let item of getAllNotes()" class=" break-inside-avoid">
+        <app-note [item] = "item"></app-note>
+    </div>
+</div>
+<!-- <app-form></app-form> -->

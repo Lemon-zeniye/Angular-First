@@ -1,0 +1,57 @@
+<div>
+    <form class="m-4 border rounded-xl bg-white md:w-50%" #myForm = "ngForm">
+        <h1 class="font-Rubik text-2xl p-2 font-bold">What to remind?</h1>
+        <div>
+            <label for="title">
+                <input type="text"  [(ngModel)] = "form.title"  #title = "ngModel"  name="title" id="title" placeholder="Title" required  minlength="4"   class="py-[5px] rounded px-2 m-1 placeholder:text-gray bg-slate-300/50 outline-none w-[96%] my-3">
+                <div *ngIf="title.invalid && (title.touched || title.dirty )" class="text-sm text-red-500 pl-1">
+                    <div *ngIf="title.errors?.['required']" >Title is requied</div>
+                    <div *ngIf="title.errors?.['minlength']">
+                        Name must be at least 4 characters long.
+                    </div>
+                </div>
+            </label>
+            <label for="description">
+                <input type="text" name="description"  [(ngModel)] = "form.description" placeholder="Description" #description = "ngModel" class="py-[5px] rounded px-2 m-1 placeholder:text-gray bg-slate-300/50 outline-none w-[96%] my-3">
+            </label>
+            <label class="block" for="title">
+                <input type="date" [(ngModel)] = "form.time" name="time" #time = "ngModel" required class="py-[5px] rounded px-2 m-1  bg-slate-300/50 outline-none w-[96%] my-3 placeholder:text-gray-500">
+                <div *ngIf="time.touched || time.dirty">
+                    <div *ngIf="time.errors?.['required']" >
+                        Time field is requied!
+                    </div>
+                </div>
+            </label>
+        </div>
+        <h1 class="text-2xl font-bold p-3 text-center">Choose Background Color</h1>
+        <div class="flex gap-2 m-4 justify-center flex-wrap">
+            <label for="color1" type="color" class="w-[5rem] h-[5rem] rounded-lg bg-white border cursor-pointer">
+                <input type="radio" id="color1" value="rgb(255 255 255)" [(ngModel)] = "form.color" #color = "ngModel" name="color" checked class="w-4 h-4 bg-black">
+            </label>
+            <label for="color2" class="w-[5rem] h-[5rem] rounded-lg bg-blue-500 cursor-pointer">
+                <input type="radio" id="color2" value="rgb(59 130 246)" [(ngModel)] = "form.color" #color = "ngModel" name="color" class="w-4 h-4 bg-black">
+            </label>
+            <label for="color3" class="w-[5rem] h-[5rem] rounded-lg bg-pink-500 cursor-pointer">
+                <input type="radio" id="color3" value="rgb(236 72 153)" [(ngModel)] = "form.color" #color = "ngModel" name="color" class="w-4 h-4 bg-black">
+            </label>
+            <label for="color4" class="w-[5rem] h-[5rem] rounded-lg bg-indigo-500 cursor-pointer">
+                <input type="radio" id="color4" value="rgb(168 85 247)" [(ngModel)] = "form.color" #color = "ngModel" name="color" class="w-4 h-4 bg-black">
+            </label>
+            <label for="color5" class="w-[5rem] h-[5rem] rounded-lg bg-purple-500 cursor-pointer">
+                <input type="radio" id="color5" value="bg-purple-500" [(ngModel)] = "form.color" #color = "ngModel" name="color" class="w-4 h-4 bg-black">
+            </label>
+            <label for="color6" class="w-[5rem] h-[5rem] rounded-lg bg-red-500 cursor-pointer">
+                <input type="radio" id="color6" value="rgb(239 68 68)" [(ngModel)] = "form.color" #color = "ngModel" name="color" class="w-4 h-4 bg-black">
+            </label>
+            <label for="color7" class="w-[5rem] h-[5rem] rounded-lg bg-green-500 cursor-pointer">
+                <input type="radio" id="color7" value="rgb(34 197 94)" [(ngModel)] = "form.color" #color = "ngModel" name="color" class="w-4 h-4 bg-black">
+            </label>
+        </div>
+        <div class="flex justify-end mt-2">
+            <button [disabled] = "myForm.form.invalid" (click)="onClear()" class="w-20 h-10 border rounded-md m-1 font-semibold " >Cancle</button>
+            <button  [disabled] = "myForm.form.invalid"   (click) =  "onSubmit()" class="w-20 h-10 border rounded-md m-1 bg-orange-400  font-semibold ">Save</button>
+        </div>
+    </form>
+</div>
+
+

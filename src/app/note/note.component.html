@@ -1,0 +1,11 @@
+<div [style.background-color]="item.color" class="group cursor-default w-40 xs:w-48 border mb-5 rounded-xl px-4 py-6">
+    <h1 class="font-bold font-Poppins">{{item.title}}</h1>
+    <p class="font-poppins leading-5 my-[.3rem] ">{{item.description}}</p>
+    <div class=" border-2 w-24 border-gray-500 text-center py-[.2rem] rounded-md">
+        {{item.time}}
+    </div>
+    <div class="hidden group-hover:block mt-3">
+        <button (click) = "editNote(item)"  class="border-2 w-14 text-center cursor-pointer py-[.1rem] rounded-md mr-2 hover:border-blue-900">Edit</button>
+        <button (click) = "deleteNote(item.id)"  class="border-2 w-20 text-center cursor-pointer py-[.1rem] rounded-md ml-2 hover:border-red-900">Delete</button>
+    </div>
+</div>
